@@ -43,3 +43,7 @@ You can also call getCalendar with an options object e.g.
    * _(default: 1)_
  * noEvents: text to show at days with no events
    * _(default: 'No Events')_
+ * ajax: load calender events via ajax call (boolean)
+   * _(default: false)_
+ * ajaxUrl: url that is called for calender events in ajax mode
+   * _(default: '')_
