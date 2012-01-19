@@ -13,18 +13,25 @@
 
     THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+    <lb1a>
+    Adding ajax loading of calender events to save some bandwith on mobile devices.
+    Loading all events / month while switch to another month(prev/next).
+    Ajax loader expects html content with this markup:
+    <li><time datetime="2009-02-17T05:00Z">Task text here</time></li>
+    </lb1a>
+
     Use this markup:
     <div id="any_id">
-                    <ul>
-                            <li><time datetime="2009-02-17T05:00Z">Task text here</time></li>
-                    </ul>
+        <ul>
+            <li><time datetime="2009-02-17T05:00Z">Task text here</time></li>
+        </ul>
     </div>
 
     and this to initialise:
     <script type="text/javascript" charset="utf-8">
-                    var jQT = new $.jQTouch({});
+        var jQT = new $.jQTouch({});
             $(function() {
-                    $('#any_id').getCalendar();
+                $('#any_id').getCalendar();
             });
     </script>
     you can also call getCalendar with an options object
@@ -44,14 +51,14 @@
                 // Load the calendar for the given date
                 jQuery.fn.getCalendar = function(options) {
                     var defaults = {
-                                    date    : new Date(),
-                                    days    : ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
-                                    months: ['January','February','March','April','May','June','July','August','September','October','November','December'],
-                                    weekstart: 1,
-                                    noEvents: 'No Events',
-                                    ajax: false,
-                                    ajaxUrl: ''
-                            }
+                        date    : new Date(),
+                        days    : ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+                        months: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+                        weekstart: 1,
+                        noEvents: 'No Events',
+                        ajax: false,
+                        ajaxUrl: ''
+                    }
                     var settings = $.extend({}, defaults, options);
 
                     return this.each(function(){
