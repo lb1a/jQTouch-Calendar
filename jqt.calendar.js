@@ -49,8 +49,8 @@
                                     months: ['January','February','March','April','May','June','July','August','September','October','November','December'],
                                     weekstart: 1,
                                     noEvents: 'No Events',
-                                                                            ajax: false,
-                                                                            ajaxUrl: ''
+                                    ajax: false,
+                                    ajaxUrl: ''
                             }
                     var settings = $.extend({}, defaults, options);
 
@@ -101,13 +101,13 @@
                         var  newDay = $el.data('settings').date
 
                         $.ajax({
-                                                       url:$el.data('settings').ajaxUrl,
-                                                        data:{month: newDay.getMonth()+1, year: newDay.getFullYear()},
-                                dataType: 'html',
+                            url:$el.data('settings').ajaxUrl,
+                            data:{month: newDay.getMonth()+1, year: newDay.getFullYear()},
+                            dataType: 'html',
                             async : false,
-                                                        success: function(data){
+                            success: function(data){
 
-                                                            $el.html(data);
+                                $el.html(data);
                                 var events = {};
 
                                 $el.find('time').each(function(index) {
@@ -126,9 +126,9 @@
 
                                 $el.data('events', events);
                                 callback();
-                                                        }
-                                                });
-                                            } else {
+                            }
+                        });
+                    } else {
                         var events = {};
 
                         $el.find('time').each(function(index) {
@@ -143,8 +143,8 @@
                             events[task_day].push({time:task_time, text:task_text});
                         });
                         $el.data('events', events);
-                                                    callback();
-                                            }
+                        callback();
+                    }
                     //}
                 }
 
